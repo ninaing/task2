@@ -5,13 +5,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
   devServer: {
-    //hot: true,
-    //inline: true,
+    hot: true,
+    inline: true,
     stats: 'errors-only',
     overlay: true
   },
   entry: {
-    main: './src/index.js',
+    main: './src/index.js'
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
