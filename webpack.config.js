@@ -2,7 +2,6 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-
 const config = {
   devServer: {
     hot: true,
@@ -27,12 +26,19 @@ const config = {
         }
       },
       {
-        test: /\.scss$/,
-        use: ['style-loader', MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader'],
+        test:  /\.(sa|sc|c)ss$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: process.env.NODE_ENV === 'development',
+              reloadAll: true,
+            },
+          },
+          'css-loader',
+          'postcss-loader',
+          'sass-loader',
+        ],
       },
       {
         test: /\.js$/,
@@ -55,8 +61,9 @@ const config = {
     }),
     new webpack.ProvidePlugin({
       $: 'jquery',
-      jQuery: 'jquery'    })
-  ],
+      jQuery: 'jquery'
+    })
+  ]
 };
 
 module.exports = config;
