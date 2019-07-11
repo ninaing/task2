@@ -47,6 +47,15 @@ const config = {
           loader: "babel-loader"
           }
       },
+      {
+        test: /\.(png|jpg|gif|eot|svg|ttf|woff|woff2)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {  },
+          },
+        ],
+      },
     ]
   },
   plugins: [

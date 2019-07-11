@@ -1,0 +1,56 @@
+
+$primary-color: #1F2041
+$top-rect: 145
+//*
+  border: 1px solid grey
+.rect-group
+  position: absolute
+  top: $top-rect + px
+  left: 150px
+  display: flex
+  flex-direction: column
+
+.item
+  display: flex
+  flex-direction: row
+  align-content: flex-start
+
+.rect
+  width: 70px
+  height: 70px
+  border-radius: 6px
+  margin-bottom: 20px
+
+.item__list
+  width: 190px
+  max-height: 58px
+  position: absolute
+  left: 110px
+  font-family: Quicksand
+  font-style: normal
+  font-weight: bold
+  h2
+    display: flex
+    flex-direction: column
+    font-size: 19px
+    span
+      font-weight: normal
+
+@for $i from 1 through 7
+  item-rect-#{$i}
+    top: $top-rect + 90 * $i + px
+
+.item__rect-1
+  background: $primary-color
+.item__rect-2
+  background: transparentize($primary-color, 0.25)
+.item__rect-3
+  background: transparentize($primary-color, 0.50)
+.item__rect-4
+  background: transparentize($primary-color, 0.75)
+.item__rect-5
+  background: transparentize($primary-color, 0.95)
+.item__rect-6
+  background: #BC9CFF
+.item__rect-7
+  background: #6FCF97
